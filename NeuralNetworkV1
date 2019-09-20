@@ -7,7 +7,7 @@ Features = 400 Greyscale Pixels
 Observations = 5k
 '''
 
-PATH = '/Users/pranjal/Google Drive/python_projects/projects/courses/andrew_ng/machine_learning/algorithms/neural_network/df.txt'
+PATH = '/Users/harmeet/Google Drive/python_projects/projects/courses/andrew_ng/machine_learning/algorithms/neural_network/df.txt'
 
 import pandas as pd
 import numpy as np
