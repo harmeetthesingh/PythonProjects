@@ -1,0 +1,19 @@
+import sys
+
+try:        #this step is for input validation
+  InputNum = int(float(input('Input a an number. If you enter decimal numbers, only integer part of them will be considered: ')))
+except:
+  print('This is not a valid number to start with.')
+  sys.exit()
+
+print(InputNum, end = ' ')
+
+while InputNum != 1 and InputNum != 0:
+  if InputNum % 2 == 0:
+    print(InputNum//2, end = ' ')
+    InputNum = InputNum//2
+  elif InputNum % 2 == 1:
+    print((3*InputNum)+1, end = ' ')
+    InputNum = (3*InputNum)+1
+
+print('\nAbove is the Collatz sequence for the given number.')
