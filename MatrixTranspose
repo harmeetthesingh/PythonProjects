@@ -1,0 +1,24 @@
+grid = [['.', '.', '.', '.', '.', '.'],
+        ['.', 'O', 'O', '.', '.', '.'],
+        ['O', 'O', 'O', 'O', '.', '.'],
+        ['O', 'O', 'O', 'O', 'O', '.'],
+        ['.', 'O', 'O', 'O', 'O', 'O'],
+        ['O', 'O', 'O', 'O', 'O', '.'],
+        ['O', 'O', 'O', 'O', '.', '.'],
+        ['.', 'O', 'O', '.', '.', '.'],
+        ['.', '.', '.', '.', '.', '.']]
+
+gridNew = []
+
+for i in range(len(grid[0])):
+  gridNew.append([])
+
+for i in range(len(grid)):                     #transposes the grid data into a new list gridNew
+  for j in range(len(grid[0])):
+    gridNew[j].append(grid[i][j])
+    
+  
+for i in range(len(gridNew)):                   #prints data of gridNew
+  for j in range(len(gridNew[0])):
+    print(str(gridNew[i][j]), end = '')
+  print()
