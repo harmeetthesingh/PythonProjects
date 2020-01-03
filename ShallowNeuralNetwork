@@ -1,0 +1,39 @@
+def nn_model(X, Y, n_h, num_iterations = 10000, learning_rate = 0.5, print_cost=False):           #here 'X' is the input dataset of shape (2, number of examples)
+                                                                                                  #and 'Y' is the label vector of shape (1, number of examples)
+                                                                                                  #and 'n_h' is the size of the hidden layer
+                                                                                                  #and 'num_iterations' is the number of iterations in gradient descent loop
+                                                                                                  #and 'learning_rate' is the value of parameter alpha
+                                                                                                  #and 'print_cost' if True, prints the cost every 1000 iterations
+   
+  #np.random.seed(3)
+  n_x = layer_sizes(X, Y)[0]                                                    #here we use the previously created layer_sizes() function to detect the sizes of input and output layer
+  n_y = layer_sizes(X, Y)[2]
+    
+  parameters = initialize_parameters(n_x, n_h, n_y)                             #here we use the previously created initialize_parameters() function to randomly initialize the parameters
+
+  for i in range(0, num_iterations):                                            #this is the gradient descent loop
+         
+    A2, cache = forward_propagation(X, parameters)                              #here we use the previously created forward_propagation() function
+    
+    cost = compute_cost(A2, Y, parameters)                                      #here we use the previously created compute_cost() function
+ 
+    grads = backward_propagation(parameters, cache, X, Y)                       #here we use the previously created backward_propagation() function
+
+    parameters = update_parameters(parameters, grads, learning_rate)            #here we use the previously created update_parameters() function
+    
+    if print_cost and i % 1000 == 0:                                            #here we print the cost every 1000 iterations
+      print ("Cost after iteration %i: %f" %(i, cost))
+
+  return parameters                                                             #these are the parameters learnt by the model
+
+X_assess, Y_assess = nn_model_test_case()
+parameters = nn_model(X_assess, Y_assess, 4, num_iterations=10000, learning_rate= 0.005, print_cost=True)
+
+print()
+print("W1 = " + str(parameters["W1"]))
+print()
+print("b1 = " + str(parameters["b1"]))
+print()
+print("W2 = " + str(parameters["W2"]))
+print()
+print("b2 = " + str(parameters["b2"]))
